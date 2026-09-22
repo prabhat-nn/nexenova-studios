@@ -53,6 +53,11 @@ const PROFILES: Record<string, Partial<TeamCard> & { shipped?: string[] }> = {
     creditLabel: 'Built solo',
     social: { linkedin: 'https://www.linkedin.com/in/prabhatkumar5071/' },
   },
+  'Vikas Gupta': {
+    bio: 'Owns the roadmap and the release calendar — what ships next, what gets cut, and what the retention numbers say about it.',
+    skills: ['Roadmap', 'Live-Ops', 'Store Listings'],
+    social: {},
+  },
   'Ashutosh Kushwah': {
     bio: 'Unity and C# developer focused on gameplay mechanics, AI behaviour, and keeping builds fast across every device tier.',
     skills: ['Unity', 'C#', 'Gameplay AI'],
@@ -106,6 +111,7 @@ function getSkillsForRole(role: string): string[] {
     'QA Tester': ['Edge Cases', 'Repro Cases', 'Device Coverage'],
     QA: ['Edge Cases', 'Repro Cases', 'Device Coverage'],
     'Sound Engineer': ['SFX', 'Music', 'Mixing'],
+    'Product Manager': ['Roadmap', 'Live-Ops', 'Store Listings'],
   }
   return map[role] || ['Game Development']
 }
