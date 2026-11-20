@@ -3,8 +3,9 @@
 import { useState, useEffect, type MouseEvent as ReactMouseEvent } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Button } from './ui/button'
-import { Moon, Sun, Menu, X } from 'lucide-react'
+import { Moon, Sun, Menu, X, ArrowUpRight, Users } from 'lucide-react'
 import { isModifiedClick } from './AppLink'
+import { TEAMS_PATH } from '../config/links'
 
 interface NavigationProps {
   onNavigateHome: () => void
@@ -171,6 +172,22 @@ export function Navigation({ onNavigateHome }: NavigationProps) {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="flex items-center space-x-2"
             >
+              {/* Staff entry point to NexTeam (internal tracker). A real link so
+                  it is keyboard-reachable and opens in a new tab like any
+                  external app; /teams redirects at the edge. */}
+              <Button asChild variant="outline" size="sm" className="cursor-pointer">
+                <a
+                  href={TEAMS_PATH}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open NexTeam, the studio's team workspace (opens in a new tab)"
+                  data-testid="teams-link"
+                >
+                  <Users className="h-4 w-4" aria-hidden="true" />
+                  Teams
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
+                </a>
+              </Button>
               <Button
                 variant="outline"
                 size="icon"
@@ -250,6 +267,21 @@ export function Navigation({ onNavigateHome }: NavigationProps) {
                     {item.label}
                   </motion.a>
                 ))}
+                <motion.a
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={TEAMS_PATH}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Open NexTeam, the studio's team workspace (opens in a new tab)"
+                  className="mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm text-foreground hover:text-primary transition-colors"
+                >
+                  <Users className="h-4 w-4" aria-hidden="true" />
+                  Teams
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
+                </motion.a>
               </div>
             </motion.div>
           )}

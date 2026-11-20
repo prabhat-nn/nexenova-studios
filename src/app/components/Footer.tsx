@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Youtube } from 'lucide-react'
 import { XIcon } from './icons/XIcon'
 import gamesSeed from '../data/games.seed.json'
 import { AppLink, SectionLink } from './AppLink'
+import { TEAMS_PATH } from '../config/links'
 
 interface CompanyInfo {
   name: string
@@ -131,6 +132,17 @@ export function Footer({
                 >
                   Careers
                 </AppLink>
+              </li>
+              <li>
+                <a
+                  href={TEAMS_PATH}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  aria-label="NexTeam, staff workspace (opens in a new tab)"
+                >
+                  Teams &middot; staff sign-in
+                </a>
               </li>
             </ul>
           </div>

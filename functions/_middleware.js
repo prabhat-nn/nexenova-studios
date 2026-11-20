@@ -21,6 +21,11 @@ import { ROUTES, GAME_SLUGS, NOT_FOUND } from '../generated/seo-routes.js'
 
 const SITE_URL = 'https://nexenovastudios.com'
 
+// Staff entry point: /teams is NexTeam, the studio's internal team, project
+// and attendance tracker (a separate app on Vercel). Kept in sync with
+// src/app/config/links.ts and public/_redirects.
+const TEAMS_APP_URL = 'https://teams.nexenovastudios.com'
+
 // Detail-URL families whose slugs come from Supabase. A slug published after
 // the last build won't be in ROUTES yet, so these stay lenient: serve HTTP 200
 // with a self-referencing canonical and let the client resolve the content (it
@@ -125,6 +130,12 @@ function seoRewriter(route) {
 }
 
 export async function onRequest(context) {
+  const url = new URL(context.request.url)
+  if (url.pathname === '/teams' || url.pathname.startsWith('/teams/')) {
+    const rest = url.pathname === '/teams' ? '/' : url.pathname.slice('/teams'.length)
+    return Response.redirect(TEAMS_APP_URL + rest + url.search, 302)
+  }
+
   const response = await context.next()
 
   // Only touch SPA-shell HTML. Static assets (JS, CSS, images, robots.txt,

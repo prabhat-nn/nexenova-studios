@@ -1,4 +1,10 @@
 # SPA fallback for Cloudflare Pages — every navigation serves the app shell so
 # the client router can render it. HTTP status is refined by functions/_middleware.js,
 # which returns a real 404 for URLs that match no known route (avoiding soft 404s).
+# Staff entry point: the branded /teams URL sends people to NexTeam (the
+# internal tracker, teams.nexenovastudios.com). functions/_middleware.js answers this first;
+# this line keeps the behaviour if the Function layer is ever disabled.
+/teams     https://teams.nexenovastudios.com    302
+/teams/*   https://teams.nexenovastudios.com/:splat    302
+
 /*    /index.html    200
