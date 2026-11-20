@@ -47,8 +47,8 @@ type TeamCard = {
  */
 const PROFILES: Record<string, Partial<TeamCard> & { shipped?: string[] }> = {
   'Prabhat Kumar': {
-    bio: 'Owns the full production stack solo — gameplay in C#, meta systems, and live-ops on Unity Gaming Services.',
-    skills: ['Unity', 'C#', 'Live-Ops', 'Unity IAP'],
+    bio: 'Runs production end to end — scopes the sprints, keeps the builds shipping, and still writes the gameplay and live-ops systems in C#.',
+    skills: ['Production', 'Unity', 'C#', 'Live-Ops'],
     shipped: ['No Limit Arena', 'Twisty Snake', 'Big Brain', 'Sweet Tumble'],
     creditLabel: 'Built solo',
     social: { linkedin: 'https://www.linkedin.com/in/prabhatkumar5071/' },
@@ -112,6 +112,7 @@ function getSkillsForRole(role: string): string[] {
     QA: ['Edge Cases', 'Repro Cases', 'Device Coverage'],
     'Sound Engineer': ['SFX', 'Music', 'Mixing'],
     'Product Manager': ['Roadmap', 'Live-Ops', 'Store Listings'],
+    'Game Producer': ['Production', 'Scheduling', 'Live-Ops'],
   }
   return map[role] || ['Game Development']
 }

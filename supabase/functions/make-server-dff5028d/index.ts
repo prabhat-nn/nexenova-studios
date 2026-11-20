@@ -1071,22 +1071,16 @@ app.get("/make-server-dff5028d/content", async (c) => {
           bio: "Sets the vision and the bar. Decides what we make, what we kill, and what ships."
         },
         {
-          id: 2,
-          name: "Manish Jha",
-          role: "Technical Lead",
-          bio: "Owns the stack end-to-end — engine, backend, build pipeline. Keeps the shipping rails greased."
+          id: 4,
+          name: "Prabhat Kumar",
+          role: "Game Producer",
+          bio: "Runs production end to end: scopes the sprints, keeps the builds shipping, and still writes the gameplay systems in C#."
         },
         {
           id: 3,
           name: "Shweta Dhawan",
           role: "Senior 2D Artist",
           bio: "Drives the visual identity across our titles. From mood boards to final pixels."
-        },
-        {
-          id: 4,
-          name: "Prabhat",
-          role: "Unity Developer",
-          bio: "Ships gameplay systems and lives in C#. Turns mechanics into something you can tap."
         },
         {
           id: 5,
